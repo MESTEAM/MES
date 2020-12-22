@@ -3405,7 +3405,7 @@ end,nil)
 end
 end,nil)
 end
-if text == "all" or text == "@all" and Manager(msg) then
+if text == "تاك للكل" or text == "تاك الكل" and Manager(msg) then
 if database:get(bot_id.."VVVZVV:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
 send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
@@ -8397,7 +8397,7 @@ end
 end,nil) 
 end
 
-if text == "تاك للكل" and Mod(msg) then
+if text == "تاك" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
