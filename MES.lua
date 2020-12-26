@@ -150,25 +150,7 @@ SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
 token = sudos.token 
---- start functions ↓
---------------------------------------------------------------------------------------------------------------
-io.popen("mkdir File_Bot") 
-io.popen("cd File_Bot && rm -rf commands.lua.1") 
-io.popen("cd File_Bot && rm -rf commands.lua.2") 
-io.popen("cd File_Bot && rm -rf commands.lua.3") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/MESTEAM/Files_MES/master/File_Bot/commands.lua") 
-t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
-i = 0
-for v in io.popen('ls File_Bot'):lines() do
-if v:match(".lua$") then
-i = i + 1
-t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
-end
-end
-print(t)
-function vardump(value)  
-print(serpent.block(value, {comment=false}))   
-end 
+
 sudo_users = {SUDO,970627200,4444455555,1033028167}   
 function SudoBot(msg)  
 local MES = false  
@@ -736,18 +718,6 @@ return false
 end
 end,nil)   
 end  
-function plugin_Poyka(msg)
-for v in io.popen('ls File_Bot'):lines() do
-if v:match(".lua$") then
-plugin = dofile("File_Bot/"..v)
-if plugin.Poyka and msg then
-pre_msg = plugin.Poyka(msg)
-end
-end
-end
-send(msg.chat_id_, msg.id_,pre_msg)  
-end
-
 --------------------------------------------------------------------------------------------------------------
 function SourceMES(msg,data) -- بداية العمل
 if msg then
@@ -11650,7 +11620,6 @@ end
 end   
 --------------------------------------------------------------------------------------------------------------
 SourceMES(data.message_,data)
-plugin_Poyka(data.message_)
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
